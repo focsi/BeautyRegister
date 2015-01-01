@@ -25,6 +25,6 @@ namespace LocalDAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Customer> Customer { get; set; }
+        public virtual DbSet<Customer> Customers { get; set; }
     }
 }
