@@ -1,22 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 
 namespace LocalDAL
 {
     public class LocalDC
     {
-        public LocalDC()
-        {
-            var context = new BeautyRegisterDC();
-            context.Customers.Add( new Customer() {Name="Kiscica", Phone = "+367777" } );
-            context.SaveChanges();
-            var res = from customer in context.Customers
-                      where customer.ID > 0
-                      select customer;
+        private BeautyRegisterDC DataContext;
 
+        public static LocalDC Instance { get; private set; }
+
+        public static void InitInstance()
+        {
+            Instance = new LocalDC();
+        }
+
+        private LocalDC()
+        {
+            DataContext = new BeautyRegisterDC();
+        }
+        
+        public IQueryable<Customer> GetCustomers()
+        {
+            return DataContext.Customers;
+        }
+
+        public void AddCustomer()
+        {
+            DataContext.Customers.Add( new Customer() { Name = "Kiscica", Phone = "+367777" } );
+            DataContext.SaveChanges();
         }
     }
 }
