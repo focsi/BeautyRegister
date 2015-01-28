@@ -20,5 +20,10 @@ namespace BeautyRegister
             
             list.ItemsSource = a.ToList() ;
         }
+
+        private void list_SelectionChanged( object sender, System.Windows.Controls.SelectionChangedEventArgs e )
+        {
+
+        }
     }
 }

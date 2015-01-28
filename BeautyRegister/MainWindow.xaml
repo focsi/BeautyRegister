@@ -1,8 +1,16 @@
-﻿<Window x:Class="BeautyRegister.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        xmlns:Views="clr-namespace:BeautyRegister.Views" x:Class="BeautyRegister.MainWindow"
+        
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <ListView x:Name="list"/>
+        <StackPanel x:Name="list1">
+            <ListView x:Name="list" SelectionChanged="list_SelectionChanged"/>
+
+            <Views:CustomerView />
+
+        </StackPanel>
     </Grid>
 </Window>
