@@ -53,10 +53,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interfaces\IClosable.cs" />
+    <Compile Include="Interfaces\ISubMenuOwner.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="Views\BaseView.cs" />
     <Compile Include="Views\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\CustomerViewModel.cs" />
+    <Compile Include="Views\ViewManager.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using BeautyRegister.Views;
+using LocalDAL;
 using System.Windows;
 
 namespace BeautyRegister
@@ -13,5 +9,10 @@ namespace BeautyRegister
     /// </summary>
     public partial class App:Application
     {
+        public App()
+        {
+            LocalDC.InitInstance();
+            ViewManager.InitInstance();
+        }
     }
 }

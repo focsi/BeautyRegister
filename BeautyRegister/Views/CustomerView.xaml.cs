@@ -18,7 +18,7 @@ namespace BeautyRegister.Views
     /// <summary>
     /// Interaction logic for CustomerView.xaml
     /// </summary>
-    public partial class CustomerView:UserControl
+    public partial class CustomerView : BaseView
     {
         public CustomerView()
         {

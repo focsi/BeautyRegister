@@ -6,11 +6,40 @@
         
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <StackPanel x:Name="list1">
-            <ListView x:Name="list" SelectionChanged="list_SelectionChanged"/>
-            <TextBlock x:Name="nameTB" />
-            <Views:CustomerView />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
 
-        </StackPanel>
+        <!--Felső status bar-->
+        <Border Grid.Row="0" 
+                IsEnabled="{Binding MainWindowEnabled}">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <!--Submenü helye-->
+                <Border Grid.Column="0">
+                    <ContentControl Content="{Binding SubMenu}" />
+                </Border>
+
+                <!--Vissza gomb-->
+                <Button Grid.Column="1"
+                            Style="{DynamicResource ButtonVisszaStyle}"
+                            Content="Vissza" 
+                            Command="{Binding VisszaCommand, Mode=OneWay}"
+                    />
+
+            </Grid>
+        </Border>
+
+        <!--Content MainView helye-->
+        <Border Grid.Row="1" Padding="5,2"
+                MinHeight="150"
+                IsEnabled="{Binding MainWindowEnabled}">
+            <ContentControl Content="{Binding MainView}" />
+        </Border>
     </Grid>
 </Window>
