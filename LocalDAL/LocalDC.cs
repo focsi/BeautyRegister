@@ -1,4 +1,6 @@
-﻿using System.Linq;
+﻿
+using BeautyRegister.DataClasses;
+using System.Linq;
 
 namespace LocalDAL
 {

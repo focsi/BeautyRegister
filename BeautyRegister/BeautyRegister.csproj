@@ -99,9 +99,15 @@
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DataClasses\DataClasses.csproj">
+      <Project>{6de2ba00-f177-46d8-a6c0-080855a915c6}</Project>
+      <Name>DataClasses</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LocalDAL\LocalDAL.csproj">
       <Project>{4d4e7ee1-db50-4daa-ba80-4a32d875e043}</Project>
       <Name>LocalDAL</Name>
