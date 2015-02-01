@@ -7,7 +7,7 @@
     <ProjectGuid>{6DE2BA00-F177-46D8-A6C0-080855A915C6}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BeautyResister.DataClasses</RootNamespace>
+    <RootNamespace>BeautyRegister.DataClasses</RootNamespace>
     <AssemblyName>DataClasses</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -41,6 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cutomer.cs" />
+    <Compile Include="HairColor.cs" />
+    <Compile Include="HairStyle.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
