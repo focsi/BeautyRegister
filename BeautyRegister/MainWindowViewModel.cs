@@ -96,7 +96,7 @@ namespace BeautyRegister
         public MainWindowViewModel()
         {
             ViewManager.Instance.Parent = this;
-            ViewManager.Instance.Open( new CustomerView() );
+            ViewManager.Instance.Open( new CustomerListView() );
         }
     }
 }
