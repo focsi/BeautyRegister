@@ -8,7 +8,7 @@
     <Grid>
         <StackPanel x:Name="list1">
             <ListView x:Name="list" SelectionChanged="list_SelectionChanged"/>
-
+            <TextBlock x:Name="nameTB" />
             <Views:CustomerView />
 
         </StackPanel>
