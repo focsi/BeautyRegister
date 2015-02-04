@@ -6,9 +6,27 @@
              xmlns:local="clr-namespace:BeautyRegister.Views"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
+	<local:BaseView.Resources>
+		<DataTemplate x:Key="CustomerItemTemplate">
+            <Grid>
+                <StackPanel>
+                    <TextBlock Text="{Binding Name }" />
+                    <TextBlock Text="{Binding Phone }"/>
+                    <TextBlock Text="{Binding EMail }"/>
+                    <TextBlock Text="{Binding Company }"/>
+                    <TextBlock Text="{Binding Birth }"/>
+                    <TextBlock Text="{Binding HairColorFK }"/>
+                    <TextBlock Text="{Binding Note }"/>
+                    <TextBlock Text="{Binding Hobby }"/>
+                    <TextBlock Text="{Binding HairStyleFK }"/>
+                    <TextBlock Text="{Binding Image }"/>
+                </StackPanel>
+            </Grid>
+		</DataTemplate>
+	</local:BaseView.Resources>
     <Grid>
-        <ListView ItemsSource="{Binding Customers}">
-            
+        <ListView ItemsSource="{Binding Customers}" 
+                  ItemTemplate="{DynamicResource CustomerItemTemplate}">
         </ListView>
     </Grid>
 </local:BaseView>
