@@ -5,28 +5,60 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BeautyRegister.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="400">
 	<local:BaseView.Resources>
 		<DataTemplate x:Key="CustomerItemTemplate">
-            <Grid>
-                <StackPanel>
-                    <TextBlock Text="{Binding Name }" />
-                    <TextBlock Text="{Binding Phone }"/>
-                    <TextBlock Text="{Binding EMail }"/>
-                    <TextBlock Text="{Binding Company }"/>
-                    <TextBlock Text="{Binding Birth }"/>
-                    <TextBlock Text="{Binding HairColorFK }"/>
-                    <TextBlock Text="{Binding Note }"/>
-                    <TextBlock Text="{Binding Hobby }"/>
-                    <TextBlock Text="{Binding HairStyleFK }"/>
-                    <TextBlock Text="{Binding Image }"/>
-                </StackPanel>
+            <Grid d:DataContext="{d:DesignData /SampleData/CustomerSampleData.xaml}" d:DesignWidth="400">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Viewbox  Stretch="Fill" Height="70" Width="70">
+                        <Canvas Height="50" Width="50">
+                            <Rectangle HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="50">
+                                <Rectangle.Fill>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#FF515151"/>
+                                        <GradientStop Color="#FFF0F0F0" Offset="1"/>
+                                    </LinearGradientBrush>
+                                </Rectangle.Fill>
+                            </Rectangle>
+                            <Path Data="M132.66667,76.833333 L132.49967,72.667003 C133.04895,70.328374 134.87988,68.638598 137.42993,67.856372 140.67672,67.240665 143.63775,66.356323 147.09599,64.356093 149.95007,62.793561 150.93664,62.405524 151.17101,60.530386 151.34288,58.702126 151.28038,58.092706 151.18663,56.483213 149.57792,56.794873 146.0881,56.979812 143.37435,56.498831 140.26409,55.94757 137.96413,54.672673 137.49955,53.998502 138.61614,53.258476 139.46743,52.118798 139.9995,50.49822 140.52746,49.43063 141.18633,45.207647&#xA;142.37438,36.53902 143.0093,32.296716 145.16109,29.087275 148.58264,26.496288 151.03102,25.201009 153.59117,24.590554 156.24913,24.579468 159.33122,24.389327 161.73027,25.186604 163.83229,26.41327 167.6013,29.046854 169.43611,32.778343 169.74922,36.747369 169.97776,41.081037 170.34535,45.21008 171.66587,49.414973 172.82311,52.024253 173.67728,53.097076 174.41547,53.581948 173.02331,55.411182 171.0944,56.077485 168.24865,56.436334 164.655,56.889493&#xA;162.85309,56.922826 160.99885,56.405082 160.99885,58.655248 160.71761,58.373977 161.24884,60.332448 161.93633,62.499281 161.96757,62.686794 164.33209,64.082725 167.82185,65.989707 171.48084,67.308465 175.24844,68.2497 178.15689,69.204565 179.39894,71.169048 179.62332,73.750108 L179.62332,76.500311 z" HorizontalAlignment="Left" Height="40.075" Stretch="Fill" VerticalAlignment="Top" Width="36.125" Fill="White" Canvas.Left="6.938" Canvas.Top="6.799"/>
+                        </Canvas>
+                    </Viewbox>
+                    <Grid Grid.Column="1"> 
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0"
+                                   Text="{Binding Name }" />
+                        <TextBlock Grid.Row="1"
+                                   Text="{Binding Phone }"/>
+                        <StackPanel Grid.Row="2" Orientation="Horizontal">
+                        <TextBlock Text="{Binding HairColorFK }"/>
+                        <TextBlock Text="{Binding HairStyleFK }"/>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
             </Grid>
 		</DataTemplate>
 	</local:BaseView.Resources>
     <Grid>
-        <ListView ItemsSource="{Binding Customers}" 
-                  ItemTemplate="{DynamicResource CustomerItemTemplate}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Button Content="Megnyit"
+                Command="{Binding OpenCustomerViewCommand}"
+                Height="50"/>
+        <ListView Grid.Row="1"
+                  ItemsSource="{Binding Customers}" 
+                  ItemTemplate="{DynamicResource CustomerItemTemplate}"
+                  SelectedItem="{Binding SelectedCustomer}">
         </ListView>
     </Grid>
 </local:BaseView>

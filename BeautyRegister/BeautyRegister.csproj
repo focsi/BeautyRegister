@@ -57,6 +57,7 @@
     <Compile Include="Interfaces\IClosable.cs" />
     <Compile Include="Interfaces\ISubMenuOwner.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="Views\BaseView.cs" />
     <Compile Include="Views\CustomerListView.xaml.cs">
       <DependentUpon>CustomerListView.xaml</DependentUpon>
@@ -130,6 +131,9 @@
       <Project>{4d4e7ee1-db50-4daa-ba80-4a32d875e043}</Project>
       <Name>LocalDAL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <DesignData Include="SampleData\CustomerSampleData.xaml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

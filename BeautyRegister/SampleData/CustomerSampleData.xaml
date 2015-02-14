@@ -1,0 +1,29 @@
+﻿<DataClasses:Customer xmlns:DataClasses="clr-namespace:BeautyRegister.DataClasses;assembly=DataClasses" xmlns:System="clr-namespace:System;assembly=mscorlib" 
+Company="Nestle Hungaria" 
+EMail="ingo@nestle.hu" 
+Hobby="CSokipapír gyüjtögetés" 
+Note="Szép haja van"
+Name="Bongyor Boglárka" 
+Phone="+36309103878">
+	<DataClasses:Customer.HairStyleFK>
+		1
+	</DataClasses:Customer.HairStyleFK>
+	<DataClasses:Customer.HairColorFK>
+		2
+	</DataClasses:Customer.HairColorFK>
+	<DataClasses:Customer.Image>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+		<System:Byte/>
+	</DataClasses:Customer.Image>
+	<DataClasses:Customer.ID>
+		123
+	</DataClasses:Customer.ID>
+</DataClasses:Customer>

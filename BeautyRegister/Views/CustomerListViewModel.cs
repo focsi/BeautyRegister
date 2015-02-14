@@ -51,5 +51,51 @@ namespace BeautyRegister.Views
         }
 
         #endregion
+
+
+        #region SelectedCustomer
+        public const string SelectedCustomerPropertyName = "SelectedCustomer";
+
+        private Customer m_SelectedCustomer;
+
+        public Customer SelectedCustomer
+        {
+            get
+            {
+                return m_SelectedCustomer;
+            }
+
+            set
+            {
+                if (m_SelectedCustomer == value)
+                    return;
+
+                m_SelectedCustomer = value;
+
+                // Binding frissítése
+                RaisePropertyChanged( SelectedCustomerPropertyName );
+            }
+        }
+
+        #endregion
+        #region OpenCustomerViewCommand
+
+        public RelayCommand OpenCustomerViewCommand
+        {
+            get
+            {
+                if (m_OpenCustomerViewCommand == null)
+                    m_OpenCustomerViewCommand = new RelayCommand( OpenCustomerViewCommandCall );
+                return m_OpenCustomerViewCommand;
+            }
+        }
+        private RelayCommand m_OpenCustomerViewCommand;
+
+
+        private void OpenCustomerViewCommandCall()
+        {
+        }
+        #endregion
+        
     }
 }
