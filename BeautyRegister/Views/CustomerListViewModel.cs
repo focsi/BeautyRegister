@@ -94,6 +94,12 @@ namespace BeautyRegister.Views
 
         private void OpenCustomerViewCommandCall()
         {
+            if (SelectedCustomer == null)
+                return;
+
+            BaseView view = new CustomerView();
+            view.DataContext = new CustomerViewModel( SelectedCustomer );
+            ViewManager.Instance.Open( view );
         }
         #endregion
         

@@ -19,5 +19,9 @@ namespace LocalDAL
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
+
+        public virtual DbSet<HairStyle> HairStyles { get; set; }
+
+         public virtual DbSet<HairColor> HairColors { get; set; }
     }
 }

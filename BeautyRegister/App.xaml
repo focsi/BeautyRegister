@@ -9,7 +9,7 @@
          
     	<ResourceDictionary>
     		<ResourceDictionary.MergedDictionaries>
-    			<ResourceDictionary Source="MainSkin.xaml"/>
+    			<ResourceDictionary Source="Skins\MainSkin.xaml"/>
     		</ResourceDictionary.MergedDictionaries>
     	</ResourceDictionary>
          

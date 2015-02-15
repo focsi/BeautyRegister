@@ -30,5 +30,10 @@ namespace LocalDAL
             DataContext.Customers.Add( new Customer() { Name = "Kiscica", Phone = "+367777" } );
             DataContext.SaveChanges();
         }
+
+        public IQueryable<HairColor> GetHairColors()
+        {
+            return DataContext.HairColors;
+        }
     }
 }

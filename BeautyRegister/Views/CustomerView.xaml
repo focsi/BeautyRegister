@@ -1,17 +1,28 @@
-﻿<local:BaseView x:Class="BeautyRegister.Views.CustomerView"
+﻿<local:BaseView
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:BeautyRegister.Views"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:BeautyRegister.Views" 
+             xmlns:Controls="clr-namespace:BeautyRegister.Controls"  
+             x:Class="BeautyRegister.Views.CustomerView" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <StackPanel>
-            <TextBlock Text="Name:"/>
-            <TextBox Text="{Binding Name}"/>
-            <TextBlock Text="Mobile:"/>
-                <TextBox Text="{Binding Mobile}"/>
-        </StackPanel>
-    </Grid>
+             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignData /SampleData/CustomerSampleData.xaml}">
+    <StackPanel Margin="0,0,0,-223.5">
+        <TextBox Text="{Binding Customer.Name}" />
+        <TextBox Text="{Binding Customer.Phone}"/>
+        <TextBox Text="{Binding Customer.EMail}"/>
+        <TextBox Text="{Binding Customer.Company}"/>
+        <TextBox Text="{Binding Customer.Birth}"/>
+
+        <TextBox Text="{Binding Customer.HairColorFK}"/>
+        <TextBox Text="{Binding Customer.Note}"/>
+        <TextBox Text="{Binding Customer.Hobby}"/>
+        <TextBox Text="{Binding Customer.HairStyleFK}"/>
+        <TextBox Text="{Binding Customer.Image}"/>
+        <Controls:OptionList Items="{Binding HairColors}" 
+                             Height="50"
+                             SelectedValue="{Binding Customer.HairColorFK}"
+                             />
+    </StackPanel>
 </local:BaseView>

@@ -1,8 +1,12 @@
 ﻿<ResourceDictionary
 	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:System="clr-namespace:System;assembly=mscorlib"
-	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:Controls="clr-namespace:BeautyRegister.Controls"
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero" >
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ComboBoxBase.xaml" />
+    </ResourceDictionary.MergedDictionaries>
     <!-- Alap betűméretek -->
     <System:Double x:Key="FontHeightSmall">13</System:Double>
     <System:Double x:Key="FontHeightMid">18</System:Double>
@@ -15,7 +19,19 @@
 
     <!--Adatlap háttér színe-->
     <SolidColorBrush x:Key="AdatlapHatter" Color="#FFC2C2C2"/>
-        
+
+    <LinearGradientBrush x:Key="ListaBorder" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FF7E7E7E" Offset="0"/>
+        <GradientStop Color="sc#1, 0.386429429, 0.386429429, 0.386429429" Offset="0.20745542645454407"/>
+        <GradientStop Color="#FFABABAB" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ListaHatter" EndPoint="1,0.5" StartPoint="0,0.5">
+        <GradientStop Color="#FFC2C4C6" Offset="0"/>
+        <GradientStop Color="sc#1, 0.6576508, 0.6677746, 0.678004742" Offset="0.20745542645454407"/>
+        <GradientStop Color="#FFE4E5E6" Offset="1"/>
+    </LinearGradientBrush>
+
     <!-- ====================== T E X T B L O C K S ====================== -->
 
     <!-- Alap textblock beállításai, sajnos nem lehet név nélküli defaultot csinni, mert akkor a Buttonok elromlanak -->
@@ -77,6 +93,22 @@
 
     <Style BasedOn="{StaticResource ListViewStyleBig}" TargetType="{x:Type ListView}">
     </Style>
+   
+    <ControlTemplate x:Key="ListBoxControlTemplate" TargetType="{x:Type ListBox}">
+        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="1" SnapsToDevicePixels="True" CornerRadius="3">
+            <Controls:TouchScrollViewer Focusable="false" Padding="{TemplateBinding Padding}">
+                <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+            </Controls:TouchScrollViewer>
+        </Border>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Background" TargetName="Bd" Value="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+            </Trigger>
+            <Trigger Property="IsGrouping" Value="True">
+                <Setter Property="ScrollViewer.CanContentScroll" Value="False"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
 
-
+ 
 </ResourceDictionary>
