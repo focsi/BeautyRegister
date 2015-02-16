@@ -7,25 +7,55 @@
              xmlns:Controls="clr-namespace:BeautyRegister.Controls"  
              x:Class="BeautyRegister.Views.CustomerView" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignData /SampleData/CustomerSampleData.xaml}">
-    <StackPanel Margin="0,0,0,-223.5" ScrollViewer.VerticalScrollBarVisibility="Auto">
+             d:DesignHeight="790" d:DesignWidth="300" Background="#FFE6DDA3">
+	<local:BaseView.Resources>
+		<Style x:Key="TitleStyle" TargetType="{x:Type TextBlock}">
+			<Setter Property="TextWrapping" Value="NoWrap"/>
+			<Setter Property="TextTrimming" Value="None"/>
+			<Setter Property="TextAlignment" Value="Right"/>
+			<Setter Property="Margin" Value="2,0,2,8"/>
+			<Setter Property="FontStyle" Value="Italic"/>
+		</Style>
+
+        <Style TargetType="{x:Type TextBox}" BasedOn="{StaticResource TextBoxStyleBig}" >
+            <Setter Property="Margin" Value="{DynamicResource MarginThicknessSmall}"/>
+             <Setter Property="FontSize" Value="{DynamicResource FontHeightBig}"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+ 			<Setter Property="Margin" Value="2,0,2,0"/>
+        </Style>
+
+	</local:BaseView.Resources>
+    <StackPanel Margin="0,0,0,-223.5" ScrollViewer.VerticalScrollBarVisibility="Visible">
         <TextBox Text="{Binding Customer.Name}" />
+        <TextBlock Text="név" Style="{DynamicResource TitleStyle}" />
         <TextBox Text="{Binding Customer.Phone}"/>
+        <TextBlock Text="telefon" Style="{DynamicResource TitleStyle}" />
         <TextBox Text="{Binding Customer.EMail}"/>
+        <TextBlock Text="e-mail" Style="{DynamicResource TitleStyle}" />
         <TextBox Text="{Binding Customer.Company}"/>
+        <TextBlock Text="munka" Style="{DynamicResource TitleStyle}" />
         <TextBox Text="{Binding Customer.Birth}"/>
+        <TextBlock Text="születési év" Style="{DynamicResource TitleStyle}" />
+
         <Controls:OptionList Items="{Binding HairColors}" 
                              Height="50"
                              SelectedValue="{Binding Customer.HairColorFK}"
                              />
+        <TextBlock Text="hajszín" Style="{DynamicResource TitleStyle}" />
+
         <Controls:OptionList Items="{Binding HairStyles}" 
                              Height="50"
                              SelectedValue="{Binding Customer.HairStyleFK}"
                              />
+        <TextBlock Text="hasstílus" Style="{DynamicResource TitleStyle}" />
+
+
+
+        <TextBox Text="{Binding Customer.Hobby}"/>
+        <TextBlock Text="hobby" Style="{DynamicResource TitleStyle}" />
 
         <TextBox Text="{Binding Customer.Note}"/>
-        <TextBox Text="{Binding Customer.Hobby}"/>
-
-
+        <TextBlock Text="megjegyzés" Style="{DynamicResource TitleStyle}" />
     </StackPanel>
 </local:BaseView>
