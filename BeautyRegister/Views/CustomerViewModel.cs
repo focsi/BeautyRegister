@@ -3,6 +3,7 @@ using BeautyRegister.DataClasses;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace BeautyRegister.Views
 {
@@ -22,9 +23,19 @@ namespace BeautyRegister.Views
         public CustomerViewModel( Customer customer )
         {
             m_Customer = customer;
-            HairColors = new List<OptionListItem> ( LocalDAL.LocalDC.Instance.GetHairColors().Select( hc => new OptionListItem() { DisplayValue = hc.Name, Value = hc.ID } )) ;
+            HairColors = new List<OptionListItem>( LocalDAL.LocalDC.Instance.GetHairColors().Select( HairColorConvert() ) );
+            HairStyles = new List<OptionListItem>( LocalDAL.LocalDC.Instance.GetHairStyles().Select( HairStyleConvert() ) );
         }
 
+        private Expression<System.Func<HairColor, OptionListItem>> HairColorConvert()
+        {
+            return hc => new OptionListItem() { DisplayValue = hc.Name, Value = hc.ID };
+        }
+
+        private Expression<System.Func<HairStyle, OptionListItem>> HairStyleConvert()
+        {
+            return hs => new OptionListItem() { DisplayValue = hs.Name, Value = hs.ID };
+        }
 
         #region Customer
         public const string CustomerPropertyName = "Customer";
@@ -57,6 +68,8 @@ namespace BeautyRegister.Views
         public const string HairColorsPropertyName = "HairColors";
 
         public List<OptionListItem> HairColors { get; private set;}
+
+        public List<OptionListItem> HairStyles { get; private set; }
 
         #endregion
     }

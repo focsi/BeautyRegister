@@ -8,21 +8,24 @@
              x:Class="BeautyRegister.Views.CustomerView" 
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300" d:DataContext="{d:DesignData /SampleData/CustomerSampleData.xaml}">
-    <StackPanel Margin="0,0,0,-223.5">
+    <StackPanel Margin="0,0,0,-223.5" ScrollViewer.VerticalScrollBarVisibility="Auto">
         <TextBox Text="{Binding Customer.Name}" />
         <TextBox Text="{Binding Customer.Phone}"/>
         <TextBox Text="{Binding Customer.EMail}"/>
         <TextBox Text="{Binding Customer.Company}"/>
         <TextBox Text="{Binding Customer.Birth}"/>
-
-        <TextBox Text="{Binding Customer.HairColorFK}"/>
-        <TextBox Text="{Binding Customer.Note}"/>
-        <TextBox Text="{Binding Customer.Hobby}"/>
-        <TextBox Text="{Binding Customer.HairStyleFK}"/>
-        <TextBox Text="{Binding Customer.Image}"/>
         <Controls:OptionList Items="{Binding HairColors}" 
                              Height="50"
                              SelectedValue="{Binding Customer.HairColorFK}"
                              />
+        <Controls:OptionList Items="{Binding HairStyles}" 
+                             Height="50"
+                             SelectedValue="{Binding Customer.HairStyleFK}"
+                             />
+
+        <TextBox Text="{Binding Customer.Note}"/>
+        <TextBox Text="{Binding Customer.Hobby}"/>
+
+
     </StackPanel>
 </local:BaseView>

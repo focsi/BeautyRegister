@@ -35,5 +35,10 @@ namespace LocalDAL
         {
             return DataContext.HairColors;
         }
+
+        public IQueryable<HairStyle> GetHairStyles()
+        {
+            return DataContext.HairStyles;  
+        }
     }
 }
