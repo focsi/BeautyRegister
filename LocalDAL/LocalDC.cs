@@ -40,5 +40,10 @@ namespace LocalDAL
         {
             return DataContext.HairStyles;  
         }
+
+        public IQueryable<Sex> GetSexes()
+        {
+            return DataContext.Sexes;
+        }
     }
 }

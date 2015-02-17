@@ -25,6 +25,7 @@ namespace BeautyRegister.Views
             m_Customer = customer;
             HairColors = new List<OptionListItem>( LocalDAL.LocalDC.Instance.GetHairColors().Select( HairColorConvert() ) );
             HairStyles = new List<OptionListItem>( LocalDAL.LocalDC.Instance.GetHairStyles().Select( HairStyleConvert() ) );
+            Sexes = new List<OptionListItem>( LocalDAL.LocalDC.Instance.GetSexes().Select( SexConvert() ) );
         }
 
         private Expression<System.Func<HairColor, OptionListItem>> HairColorConvert()
@@ -37,6 +38,11 @@ namespace BeautyRegister.Views
             return hs => new OptionListItem() { DisplayValue = hs.Name, Value = hs.ID };
         }
 
+        private Expression<System.Func<Sex, OptionListItem>> SexConvert()
+        {
+            return s => new OptionListItem() { DisplayValue = s.Name, Value = s.ID };
+        }
+        
         #region Customer
         public const string CustomerPropertyName = "Customer";
 
@@ -71,6 +77,7 @@ namespace BeautyRegister.Views
 
         public List<OptionListItem> HairStyles { get; private set; }
 
+        public List<OptionListItem> Sexes { get; private set; }
         #endregion
     }
 }

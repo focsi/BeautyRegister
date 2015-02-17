@@ -29,6 +29,10 @@
     <StackPanel Margin="0,0,0,-223.5" ScrollViewer.VerticalScrollBarVisibility="Visible">
         <TextBox Text="{Binding Customer.Name}" />
         <TextBlock Text="név" Style="{DynamicResource TitleStyle}" />
+        <Controls:OptionList Items="{Binding Sexes}" 
+                             MinHeight="20"
+                             SelectedValue="{Binding Customer.SexFK}" />
+        <TextBlock Text="nem" Style="{DynamicResource TitleStyle}" />
         <TextBox Text="{Binding Customer.Phone}"/>
         <TextBlock Text="telefon" Style="{DynamicResource TitleStyle}" />
         <TextBox Text="{Binding Customer.EMail}"/>

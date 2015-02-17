@@ -15,7 +15,8 @@ namespace LocalDAL
         {
             modelBuilder.Entity<Customer>().ToTable( "Customer" );
             modelBuilder.Entity<HairStyle>().ToTable( "HairStyle" );
-            modelBuilder.Entity<HairColor>().ToTable( "hairColor" );
+            modelBuilder.Entity<HairColor>().ToTable( "HairColor" );
+            modelBuilder.Entity<Sex>().ToTable( "Sex" );
         }
     
         public virtual DbSet<Customer> Customers { get; set; }
@@ -23,5 +24,7 @@ namespace LocalDAL
         public virtual DbSet<HairStyle> HairStyles { get; set; }
 
          public virtual DbSet<HairColor> HairColors { get; set; }
-    }
+
+         public virtual DbSet<Sex> Sexes { get; set; }
+     }
 }
